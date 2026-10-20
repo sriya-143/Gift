@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f9dce8">
+<title>For Rushi 💗</title>
+<style>
+:root{--pink:#f9dce8;--rose:#d94f79;--deep:#650b2d;--cream:#fff8ef;--ink:#7d243f}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Arial,Helvetica,sans-serif;background:#fff0f5;color:var(--ink)}
+body{overflow-x:hidden}
+.page{display:none;min-height:100svh;padding:16px 14px 26px;align-items:center;justify-content:center;flex-direction:column;gap:14px;animation:fade .45s ease}
+.page.active{display:flex}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.art-wrap{position:relative;width:min(100%,900px);margin:auto;border-radius:10px;overflow:hidden;box-shadow:0 10px 35px #6b17301a}
+.design-img{display:block;width:100%;height:auto}
+button{font:inherit;cursor:pointer;border:0;touch-action:manipulation}
+button:focus-visible{outline:3px solid #b52f59;outline-offset:3px}
+.main-btn{background:linear-gradient(135deg,#d94fce,#f08ae7);color:#fff;border-radius:999px;padding:14px 24px;font-weight:700;box-shadow:0 7px 18px #d94f7940;min-height:48px;max-width:100%}
+.main-btn:active{transform:scale(.97)}
+.back-btn{background:#fff;border:1px solid #f0b1c7;color:#a72d56;border-radius:999px;padding:11px 18px;min-height:44px}
+.cover-wrap{cursor:default}
+.tap-zone{position:absolute;left:75%;top:19%;width:22%;height:31%;border-radius:20px;background:transparent;cursor:pointer}
+.tap-hint{position:absolute;left:72%;top:50%;width:26%;height:23%;display:flex;align-items:center;justify-content:center;text-align:center;color:#4b0b24;font-size:clamp(9px,2.5vw,17px);font-weight:800;pointer-events:none}
+.opened-overlay{position:absolute;inset:0;background:linear-gradient(180deg,#26000be8,#b90042e8);display:none;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:20px;color:#fff;gap:12px}
+.opened-overlay.show{display:flex;animation:fade .4s ease}
+.gift-emoji{font-size:clamp(76px,24vw,150px);filter:drop-shadow(0 10px 10px #30000b66);animation:bounce .9s ease both}
+@keyframes bounce{0%{transform:scale(.3) rotate(-18deg)}70%{transform:scale(1.12) rotate(5deg)}100%{transform:scale(1) rotate(0)}}
+.opened-overlay h2{font-family:Georgia,serif;margin:0;font-size:clamp(24px,7vw,42px)}
+.opened-overlay p{margin:0;line-height:1.5}
+.letter-wrap .next-overlay{position:absolute;left:62%;top:90%;width:17%;height:9%;border-radius:30px;background:transparent}
+.page-heading{text-align:center;margin:0;font-family:Georgia,serif;font-size:clamp(25px,7vw,42px);color:#a52d55}
+.subtitle{text-align:center;margin:0;line-height:1.5;font-size:clamp(14px,4vw,18px)}
+.gallery-wrap{width:min(100%,900px)}
+.gallery-wrap img{width:100%;display:block;border-radius:8px}
+.coupons-page{background:radial-gradient(circle at top,#fff8fb,#ffe0eb 65%,#f7c8d9);justify-content:flex-start;padding-top:max(28px,env(safe-area-inset-top))}
+.coupon-list{width:min(100%,620px);display:grid;grid-template-columns:1fr;gap:13px}
+.coupon{display:block;position:relative;width:100%;height:150px;padding:0;margin:0;border:0;border-radius:18px;background:transparent;color:inherit;text-align:left;appearance:none;-webkit-appearance:none;perspective:1000px;cursor:pointer;outline:none;overflow:visible}
+.coupon-inner{display:block;position:relative;width:100%;height:100%;transition:transform .65s cubic-bezier(.2,.75,.25,1);transform-style:preserve-3d}
+.coupon.flipped .coupon-inner{transform:rotateY(180deg)}
+.coupon-face{position:absolute;inset:0;display:flex;width:100%;height:100%;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1.5px dashed #d94f79;border-radius:18px;background:#fff6fa;box-shadow:0 7px 18px #b7356015;flex-direction:column;justify-content:center;padding:17px 19px;gap:8px;overflow:hidden}
+.coupon-face:before,.coupon-face:after{content:"";position:absolute;top:calc(50% - 11px);width:22px;height:22px;border-radius:50%;background:#ffe2ec;border:1px solid #f0a7bf}
+.coupon-face:before{left:-12px}.coupon-face:after{right:-12px}
+.coupon-front h3{font-size:clamp(17px,4.8vw,21px);margin:0;color:#b52f59}
+.coupon-front p,.coupon-back p{margin:0;font-size:clamp(13px,3.8vw,16px);line-height:1.4}
+.coupon-front small{font-size:12px;letter-spacing:.5px;color:#c13e66}
+.coupon-back{transform:rotateY(180deg);align-items:center;text-align:center;background:linear-gradient(135deg,#fff7fa,#ffd9e7)}
+.coupon-back strong{font-family:Georgia,serif;font-size:clamp(20px,5vw,26px);color:#b52f59}
+.flip-hint{text-align:center;font-size:13px;color:#a43b5d;margin:-3px 0 0}
+.final-page{background:radial-gradient(circle at 50% 35%,#fff7fb,#ffd6e5 55%,#f3a9c3);text-align:center}
+.final-heart{font-size:clamp(95px,30vw,180px);animation:heartbeat 1.4s infinite;filter:drop-shadow(0 8px 12px #be32614a)}
+@keyframes heartbeat{0%,100%{transform:scale(1)}15%{transform:scale(1.1)}30%{transform:scale(1)}45%{transform:scale(1.08)}}
+.final-page h1{font-family:Georgia,serif;font-size:clamp(34px,10vw,58px);margin:0;color:#a52d55}
+.final-page p{font-size:clamp(16px,4.5vw,20px);line-height:1.6;max-width:34ch;margin:0 auto}
+.progress{display:flex;gap:7px;justify-content:center;padding:5px}
+.dot{height:7px;width:7px;border-radius:100px;background:#e9a6be}.dot.on{width:22px;background:#d94f79}
+
+.gallery-page{background:radial-gradient(circle at top,#fffafd,#ffe2ec 70%,#f8c8d9)}
+.photo-grid{width:min(100%,760px);display:grid;grid-template-columns:1fr;gap:16px}
+.photo-card{margin:0;background:#fffafc;border:1px solid #f3bfd0;border-radius:18px;padding:10px;box-shadow:0 8px 22px #a52d5510;transform:rotate(-.5deg)}
+.photo-card:nth-child(2){transform:rotate(.6deg)}
+.photo-frame{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:12px;background:linear-gradient(135deg,#ffe4ef,#f7bfd5)}
+.photo-frame img{display:block;width:100%;height:100%;object-fit:cover}
+.photo-placeholder{display:none;position:absolute;inset:0;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:#a52d55;background:linear-gradient(135deg,#fff0f6,#ffd8e7)}
+.photo-placeholder span{font-size:42px}.photo-placeholder b{font-family:Georgia,serif;font-size:20px}.photo-placeholder small{font-size:12px}
+.photo-card figcaption{text-align:center;padding:10px 4px 3px;font-family:Georgia,serif;font-style:italic;color:#a52d55}
+.gallery-note{font-size:12px;color:#9f4865}
+@media(min-width:700px){.photo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.photo-card{min-width:0}.page{padding:28px}.coupon-list{grid-template-columns:1fr 1fr}.coupon{height:175px}.coupon-face{padding:20px}.art-wrap{max-height:82svh}.design-img{max-height:82svh;object-fit:contain;background:#fff0f5}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<section class="page active" id="page1" aria-label="Gift box">
+  <div class="art-wrap cover-wrap">
+    <img class="design-img" src="cover.png" alt="For Rushi, pink gift box and teddy bears">
+    <button class="tap-zone" id="openBox" aria-label="Open the gift box"></button>
+    <div class="opened-overlay" id="openedOverlay">
+      <div class="gift-emoji" aria-hidden="true">🎁</div>
+      <h2>Surprise, Rushi! 💗</h2>
+      <p>I made something just for you.</p>
+      <button class="main-btn" id="toLetter">Click for the Gift 💌</button>
+    </div>
+  </div>
+  <p class="subtitle">Tap the gift box, baby 🎀</p>
+</section>
+
+<section class="page" id="page2" aria-label="Love letter">
+  <h1 class="page-heading">A little letter for you 💌</h1>
+  <div class="art-wrap letter-wrap">
+    <img class="design-img" src="letter.png" alt="Romantic handwritten shayari letter">
+    <button class="next-overlay" id="letterNext" aria-label="Next page"></button>
+  </div>
+  <button class="main-btn" id="toCoupons">Next surprise, handsome →</button>
+</section>
+
+<section class="page" id="page3" aria-label="Boyfriend privileges coupons">
+  <h1 class="page-heading">Boyfriend Privileges 🎟️</h1>
+  <p class="subtitle">Tap each coupon to reveal what's on the back ♡</p>
+  <div class="coupon-list">
+    <button class="coupon" aria-label="Flip one tight hug coupon">
+      <span class="coupon-inner">
+        <span class="coupon-face coupon-front"><h3>01. ONE TIGHT HUG 🧸</h3><p>Redeem for one extra-long hug from your girl.</p><small>VALID FOREVER ♡ · TAP TO FLIP</small></span>
+        <span class="coupon-face coupon-back"><strong>Come here, handsome 🫂</strong><p>This coupon is redeemable for the biggest, warmest hug.</p></span>
+      </span>
+    </button>
+    <button class="coupon" aria-label="Flip unlimited kisses coupon">
+      <span class="coupon-inner">
+        <span class="coupon-face coupon-front"><h3>02. UNLIMITED KISSES 💋</h3><p>A little extra love, whenever we both want it.</p><small>NO EXPIRY DATE ♡ · TAP TO FLIP</small></span>
+        <span class="coupon-face coupon-back"><strong>Mwah, mwah 💋</strong><p>Lots of kisses reserved for my favourite boy.</p></span>
+      </span>
+    </button>
+    <button class="coupon" aria-label="Flip your wish coupon">
+      <span class="coupon-inner">
+        <span class="coupon-face coupon-front"><h3>03. YOUR WISH 🎁</h3><p>One sweet wish from my favourite boy.</p><small>MADE WITH LOVE ♡ · TAP TO FLIP</small></span>
+        <span class="coupon-face coupon-back"><strong>Your wish, my love ✨</strong><p>Tell me one little wish and I'll try my best to make it happen.</p></span>
+      </span>
+    </button>
+    <button class="coupon" aria-label="Flip extra attention coupon">
+      <span class="coupon-inner">
+        <span class="coupon-face coupon-front"><h3>04. EXTRA ATTENTION 🎀</h3><p>A little extra pampering, just because you deserve it.</p><small>EXCLUSIVE TO YOU ♡ · TAP TO FLIP</small></span>
+        <span class="coupon-face coupon-back"><strong>All eyes on you 💗</strong><p>Extra attention and affection from your girl, just for you.</p></span>
+      </span>
+    </button>
+  </div>
+  <p class="flip-hint">Tap again to turn a coupon back over.</p>
+  <button class="main-btn" id="toVideo">One more surprise →</button>
+</section>
+
+<section class="page gallery-page" id="page4" aria-label="Three picture surprise">
+  <h1 class="page-heading">A little gallery for you ♡</h1>
+  <p class="subtitle">Three little things to make you smile, handsome 💗</p>
+  <div class="photo-grid">
+    <figure class="photo-card">
+      <div class="photo-frame"><img src="photo1.jpg" alt="Photo one" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder"><span>🎀</span><b>Photo One</b><small>Replace with photo1.jpg</small></div></div>
+      <figcaption>My favourite boy ♡</figcaption>
+    </figure>
+    <figure class="photo-card">
+      <div class="photo-frame"><img src="photo2.jpg" alt="Photo two" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder"><span>💗</span><b>Photo Two</b><small>Replace with photo2.jpg</small></div></div>
+      <figcaption>Handsome</figcaption>
+    </figure>
+    <figure class="photo-card">
+      <div class="photo-frame"><img src="photo3.jpg" alt="Photo three" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder"><span>✨</span><b>Photo Three</b><small>Replace with photo3.jpg</small></div></div>
+      <figcaption>with love ♡</figcaption>
+    </figure>
+  </div>
+  <p class="subtitle gallery-note">To add your pictures, put them in this folder and name them photo1.jpg, photo2.jpg and photo3.jpg.</p>
+  <button class="main-btn" id="toFinal">One last thing, my love →</button>
+</section>
+
+<section class="page final-page" id="page5" aria-label="Final love message">
+  <div class="final-heart" aria-hidden="true">💗</div>
+  <h1>I LOVE YOU, RUSHI!</h1>
+  <p>You are so special to me. I hope this little gift made you smile. Never forget how loved you are, my favourite boy. ♡</p>
+  <p style="font-family:Georgia,serif;font-style:italic">Forever your girl 💋</p>
+  <button class="main-btn" id="kissBtn">Tap for a kiss 💋</button>
+  <p id="kissMessage" hidden>MWAHHH! Sending you a million kisses 💋💋💋</p>
+  <button class="back-btn" id="restart">Replay your surprise ↻</button>
+</section>
+<div class="progress" id="progress" aria-label="Page progress">
+  <span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+<script>
+const pageIds = ["page1","page2","page3","page4","page5"];
+function showPage(n){
+  pageIds.forEach((id,i)=>document.getElementById(id).classList.toggle("active",i===n-1));
+  document.querySelectorAll(".dot").forEach((dot,i)=>dot.classList.toggle("on",i===n-1));
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+document.getElementById("openBox").addEventListener("click",()=>{
+  document.getElementById("openedOverlay").classList.add("show");
+});
+document.getElementById("toLetter").addEventListener("click",()=>showPage(2));
+document.getElementById("letterNext").addEventListener("click",()=>showPage(3));
+document.getElementById("toCoupons").addEventListener("click",()=>showPage(3));
+document.querySelectorAll(".coupon").forEach(coupon=>{
+  coupon.addEventListener("click",()=>coupon.classList.toggle("flipped"));
+  coupon.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();coupon.classList.toggle("flipped")}});
+});
+document.getElementById("toVideo").addEventListener("click",()=>showPage(4));
+document.getElementById("toFinal").addEventListener("click",()=>showPage(5));
+document.getElementById("kissBtn").addEventListener("click",()=>{
+  const m=document.getElementById("kissMessage");m.hidden=false;
+});
+document.getElementById("restart").addEventListener("click",()=>{
+  document.getElementById("openedOverlay").classList.remove("show");
+  document.querySelectorAll(".coupon").forEach(c=>c.classList.remove("flipped"));
+  document.getElementById("kissMessage").hidden=true;
+  showPage(1);
+});
+</script>
+</body>
+</html>
